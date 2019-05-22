@@ -31,7 +31,12 @@ jobs:
       # Deploy the retrieve repository files to the VM via rSync SSH...
       - run: 
             name: Deploy Project Files
-            command: rsync --exclude='.git/' --exclude='README.md' -e ssh -avvz ~/project/ launch@10.137.0.159:/var/www/html/
+            command: rsync --exclude='.git/' --exclude='README.md' -e ssh -avvz ~/firstapp/ launch@10.137.0.159:/home/launch
+                #if [ "${CIRCLE_BRANCH}" = "master" ]; then
+                      #rsync ssh command
+                #else
+                      #echo "not master branch."
+                #fi
       
 workflows:
 
